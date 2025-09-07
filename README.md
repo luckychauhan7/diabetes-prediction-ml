@@ -137,7 +137,6 @@ streamlit run Diabetes-Prediction-by-Lucky-Chauhan.py
 ### 🎥 Demo (GIF)  
 ![Demo GIF](images/demo.gif)  
 
-*(Add screenshots/GIFs inside an `images/` folder in your repo)*  
 
 ---
 
