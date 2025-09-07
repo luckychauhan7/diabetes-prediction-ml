@@ -83,8 +83,67 @@ Predictions include probability outputs to communicate risk, which aligns with c
 
 ---
 
-## 🚀 How to Run  
+## 🚀 How to Run-- 
 
 1. **Install dependencies**  
    ```bash
    pip install -r requirements.txt
+   
+2.Train the model :
+   
+  python train_model.py
+
+ → Produces diabetes_model.pkl and scaler.pkl
+
+
+3.Predict via CLI:
+
+  python predict_cli.py
+
+  → Enter values interactively, see label + probability
+
+
+4.Launch Streamlit app:
+
+  streamlit run Diabetes-Prediction-by-Lucky-Chauhan.py
+
+🖼️ Screenshots & Demo--
+🔍 Dataset Exploration
+
+📊 Correlation Heatmap
+
+⚡ Real-time Prediction in Streamlit
+
+
+🧠 Modeling Notes--
+
+Why Random Forest?
+Strong baseline for tabular data, robust to non-linearities and interactions, interpretable via feature importance
+
+Performance expectations
+Typical baselines: mid-70s to mid-80s accuracy without heavy tuning
+Improvements come from imputation, class weighting, and hyperparameter search
+
+
+⚠️ Limitations--
+
+Educational use only → Not clinical advice
+
+Small dataset → Known quirks (e.g., zero values in physiological fields)
+
+Cohort constraints → Trained only on adult Pima Indian females
+
+🔮 Roadmap--
+
+🔎 Add cross-validation & RandomizedSearchCV for more robust performance
+
+🎯 Calibrate probabilities for improved risk communication
+
+🪄 Add SHAP / feature importance explainability inside the Streamlit app
+
+
+📚 References--
+
+Pima Indians Diabetes Database (UCI Machine Learning Repository)
+
+Comparable Random Forest + Streamlit implementations from community tutorials
