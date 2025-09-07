@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from io import BytesIO, StringIO
 import datetime
+
+st.set_page_config(page_title="Diabetes Prediction and Dashboard", page_icon="🩺", layout="wide")
 #for backgrounf image
 def set_background_image():
     with open("COLOURlovers.com-Grey_Background.jpg", "rb") as img_file:
@@ -62,7 +64,7 @@ data = load_dataset()
 
 model = joblib.load("diabetes_prediction_model.pkl")
 scaler = joblib.load("scaler.pkl")
-st.set_page_config(page_title="Diabetes Prediction and Dashboard", page_icon="🩺", layout="wide")
+#st.set_page_config(page_title="Diabetes Prediction and Dashboard", page_icon="🩺", layout="wide")
 
 if 'prediction_history' not in st.session_state:
     st.session_state.prediction_history = []
@@ -449,3 +451,4 @@ else:
 
 st.markdown("---")
 st.caption("💡 **Note**: This analysis is based on population data and should not replace professional medical consultation.")
+
