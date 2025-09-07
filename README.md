@@ -124,12 +124,15 @@ streamlit run Diabetes-Prediction-by-Lucky-Chauhan.py
 
 ### 🔍 Dataset Exploration  
 ![Dataset overview](images/dataset_overview.png)  
+![Dataset overview](images/dataset_overview1.png)  
+![Dataset overview](images/dataset_overview2.png)  
 
 ### 📊 Correlation Heatmap  
 ![Correlation heatmap](images/correlation_heatmap.png)  
 
 ### ⚡ Real-time Prediction in Streamlit  
-![Prediction form](images/streamlit_prediction.png)  
+![Prediction form](images/streamlit_prediction2.png)  
+![Prediction form](images/streamlit_prediction3.png)  
 
 ### 🎥 Demo (GIF)  
 ![Demo GIF](images/demo.gif)  
