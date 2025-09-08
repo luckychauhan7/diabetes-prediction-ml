@@ -64,12 +64,11 @@ data = load_dataset()
 
 model = joblib.load("diabetes_prediction_model.pkl")
 scaler = joblib.load("scaler.pkl")
-#st.set_page_config(page_title="Diabetes Prediction and Dashboard", page_icon="🩺", layout="wide")
 
 if 'prediction_history' not in st.session_state:
     st.session_state.prediction_history = []
 
-#sidebar
+#sidebar.
 with st.sidebar:
     st.header("📊 Dataset Analysis")
     
@@ -161,7 +160,6 @@ def predict_patient(df_row: pd.DataFrame):
 def create_patient_comparison_chart(df, patient_df):
     """Create comparison chart showing patient vs average values."""
     stats = compute_average_stats(df)
-    
     #pepare data for ploting
     features = []
     patient_values = []
@@ -183,7 +181,6 @@ def create_patient_comparison_chart(df, patient_df):
     
     for i, feature in enumerate(FEATURES):
         ax = axes[i]
-
         x_pos = [0, 1, 2, 3]
         values = [
             patient_values[i],
@@ -212,7 +209,6 @@ def create_patient_comparison_chart(df, patient_df):
         patient_val = patient_values[i]
         if patient_val < healthy_min[i] or patient_val > healthy_max[i]:
             ax.set_facecolor('#ffeeee')  # Light red background
-        
         ax.set_title(f'{feature}', fontsize=12, fontweight='bold')
         ax.set_ylabel('Value', fontsize=10)
         ax.set_xticks(x_pos)
@@ -329,17 +325,13 @@ with col4:
 st.markdown("---")
 st.subheader("📊 Patient vs Average Values Comparison")
 st.info("This chart compares patient values with population averages and healthy ranges.")
-
 fig1 = create_patient_comparison_chart(data, patient_df)
 st.pyplot(fig1)
-
 st.markdown("---")
 st.subheader("💚 Healthy Value Ranges Reference")
 st.info("Reference chart showing normal/healthy ranges for each health parameter.")
-
 fig2 = create_healthy_ranges_chart()
 st.pyplot(fig2)
-
 st.markdown("### 💡 Quick Interpretation")
 stats = compute_average_stats(data)
 interpretation_points = []
@@ -369,15 +361,15 @@ else:
     st.success("✅ All your values are within healthy ranges and align with the healthy population averages.")
 
 
-# PREDICTION HISTORY SECTION
+# priDICTION HIRSTOY= EVALUATIONN
 st.markdown("---")
 st.header("📈 Prediction History")
 
 if st.session_state.prediction_history:
-    # Convert history to DataFrame
+    #Convert history to dataframe
     history_df = pd.DataFrame(st.session_state.prediction_history)
     
-    # Dislay metrices
+    #dislay metrices
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric("Total Predictions", len(history_df))
@@ -391,11 +383,11 @@ if st.session_state.prediction_history:
         high_risk_count = len(history_df[history_df['Risk_Level'] == 'High Risk'])
         st.metric("High Risk Cases", high_risk_count)
     
-    # Display history table
+    #display history table
     st.subheader("📋 Recent Predictions")
     st.dataframe(history_df, use_container_width=True)
     
-    # Export options
+    #export options
     st.subheader("📥 Export History")
     col1, col2, col3 = st.columns(3)
     
@@ -426,8 +418,7 @@ if st.session_state.prediction_history:
     #history visulization
     if len(history_df) > 1:
         st.subheader("📊 History Trends")
-        
-        #risk level distribution
+        #risk leveldistribution
         col1, col2 = st.columns(2)
         
         with col1:
@@ -451,4 +442,5 @@ else:
 
 st.markdown("---")
 st.caption("💡 **Note**: This analysis is based on population data and should not replace professional medical consultation.")
+
 
